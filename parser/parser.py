@@ -21,3 +21,18 @@ class Parser:
             return self.current_instruction
 
         return None
+
+    def instruction_type(self):
+        if self.current_instruction is None:
+            return None
+
+        if self.current_instruction.startswith("@"):
+            return "A_INSTRUCTION"
+
+        if (
+            self.current_instruction.startswith("(")
+            and self.current_instruction.endswith(")")
+        ):
+            return "LABEL"
+
+        return "C_INSTRUCTION"
