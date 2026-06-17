@@ -36,3 +36,44 @@ class Parser:
             return "LABEL"
 
         return "C_INSTRUCTION"
+
+    def symbol(self):
+        if self.instruction_type() == "A_INSTRUCTION":
+            return self.current_instruction[1:]
+
+        if self.instruction_type() == "LABEL":
+            return self.current_instruction[1:-1]
+
+        return None
+
+    def dest(self):
+        if self.instruction_type() != "C_INSTRUCTION":
+            return None
+
+        if "=" in self.current_instruction:
+            return self.current_instruction.split("=")[0]
+
+        return None
+
+    def comp(self):
+        if self.instruction_type() != "C_INSTRUCTION":
+            return None
+
+        instruction = self.current_instruction
+
+        if "=" in instruction:
+            instruction = instruction.split("=")[1]
+
+        if ";" in instruction:
+            instruction = instruction.split(";")[0]
+
+        return instruction
+
+    def jump(self):
+        if self.instruction_type() != "C_INSTRUCTION":
+            return None
+
+        if ";" in self.current_instruction:
+            return self.current_instruction.split(";")[1]
+
+        return None
