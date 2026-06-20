@@ -114,11 +114,7 @@ O programa gerará automaticamente um arquivo `.hack`.
 Para executar os testes:
 
 ```bash
-pytest
+python -m pytest -v
 ```
 
 ---
-
-## 📌 Status do Projeto
-
-🚧 Em desenvolvimento
