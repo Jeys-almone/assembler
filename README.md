@@ -118,3 +118,6 @@ python -m pytest -v
 ```
 
 ---
+## 🎥 Vídeo de Apresentação
+
+https://drive.google.com/file/d/1li1fwRI2lwwkQMLlIeMDW28jqAi7in4h/view?usp=sharing
